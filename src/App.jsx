@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
+import { db, doc, getDoc, setDoc, updateDoc, increment } from './firebase';
+
 
 const candidates = [
   {
@@ -45,31 +47,53 @@ const sections = [
 export default function ComplexMultiVariant() {
   const [selected, setSelected] = useState(candidates[0]);
   const [clickCounts, setClickCounts] = useState({}); // { 'candidateId-sectionId': count }
+  const [loading, setLoading] = useState(false);
+
+  // Firestore에서 클릭 수 불러오기 함수
+  const fetchClickCounts = async (candidateId) => {
+    setLoading(true);
+    const docRef = doc(db, 'clicks', candidateId);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      setClickCounts(docSnap.data());
+    } else {
+      // 문서 없으면 초기화
+      const emptyCounts = {};
+      sections.forEach(s => {
+        emptyCounts[s.id] = 0;
+      });
+      setClickCounts(emptyCounts);
+      await setDoc(docRef, emptyCounts);
+    }
+    setLoading(false);
+  };
 
   useEffect(() => {
-    const savedCounts = localStorage.getItem('click-counts');
-    const savedSelected = localStorage.getItem('selected-candidate');
-
-    if (savedCounts) setClickCounts(JSON.parse(savedCounts));
-    if (savedSelected) {
-      const sel = JSON.parse(savedSelected);
-      const found = candidates.find(c => c.id === sel.id);
-      if (found) setSelected(found);
-    }
-  }, []);
+    // 후보 선택 시 Firestore에서 클릭 수 불러오기
+    fetchClickCounts(selected.id);
+  }, [selected]);
 
   const handleSelectCandidate = (candidate) => {
     setSelected(candidate);
-    localStorage.setItem('selected-candidate', JSON.stringify(candidate));
   };
 
-  const handleClick = (sectionId) => {
-    const key = `${selected.id}-${sectionId}`;
-    const newCounts = { ...clickCounts, [key]: (clickCounts[key] || 0) + 1 };
-    setClickCounts(newCounts);
-    localStorage.setItem('click-counts', JSON.stringify(newCounts));
-    alert(`${selected.name} - ${sections.find(s => s.id === sectionId).label} Die gesamten Clicks: ${newCounts[key]}`);
+  const handleClick = async (sectionId) => {
+    const docRef = doc(db, 'clicks', selected.id);
+
+    // Firestore에서 해당 섹션 클릭 수 1 증가
+    await updateDoc(docRef, {
+      [sectionId]: increment(1),
+    });
+
+    // 로컬 상태에도 반영
+    setClickCounts(prev => {
+      const newCounts = { ...prev, [sectionId]: (prev[sectionId] || 0) + 1 };
+      alert(`${selected.name} - ${sections.find(s => s.id === sectionId).label} Die gesamten Clicks: ${newCounts[sectionId]}`);
+      return newCounts;
+    });
   };
+
+  if (loading) return <div>Loading...</div>;
 
   return (
     <div style={{ fontFamily: 'sans-serif', maxWidth: 900, margin: '20px auto', padding: 20 }}>
@@ -124,7 +148,7 @@ export default function ComplexMultiVariant() {
               fontWeight: 'bold',
             }}
           >
-            CLICK ({clickCounts[`${selected.id}-header`] || 0})
+            CLICK ({clickCounts['header'] || 0})
           </button>
         </header>
 
@@ -155,7 +179,7 @@ export default function ComplexMultiVariant() {
               fontSize: 16,
             }}
           >
-            SECTION Click ({clickCounts[`${selected.id}-hero`] || 0})
+            SECTION Click ({clickCounts['hero'] || 0})
           </button>
         </section>
 
@@ -199,7 +223,7 @@ export default function ComplexMultiVariant() {
                   color: 'white',
                 }}
               >
-                Click ({clickCounts[`${selected.id}-features`] || 0})
+                Click ({clickCounts['features'] || 0})
               </button>
             </div>
           ))}
@@ -228,7 +252,7 @@ export default function ComplexMultiVariant() {
               color: 'white',
             }}
           >
-            TEILNEHMEN ({clickCounts[`${selected.id}-cta`] || 0})
+            TEILNEHMEN ({clickCounts['cta'] || 0})
           </button>
         </section>
 
@@ -257,11 +281,10 @@ export default function ComplexMultiVariant() {
               fontWeight: 'bold',
             }}
           >
-            Click ({clickCounts[`${selected.id}-footer`] || 0})
+            Click ({clickCounts['footer'] || 0})
           </button>
         </footer>
       </div>
     </div>
   );
 }
-
