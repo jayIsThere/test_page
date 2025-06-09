@@ -44,6 +44,9 @@ const sections = [
   { id: 'footer', label: 'FOOTER' },
 ];
 
+
+console.log('firebase init', app);
+
 export default function ComplexMultiVariant() {
   const [selected, setSelected] = useState(candidates[0]);
   const [clickCounts, setClickCounts] = useState({}); // { 'candidateId-sectionId': count }
