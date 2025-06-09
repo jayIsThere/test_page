@@ -1,0 +1,49 @@
+.App {
+  max-width: 900px;
+  margin: 20px auto; /* 좌우 가운데 정렬 */
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.tabs {
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  margin-right: 10px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ddd;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.tabs button.active,
+.tabs button:hover {
+  background-color: #4caf50;
+  color: white;
+}
+
+.test-page {
+  border: 3px solid;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.test-page header,
+.test-page footer {
+  padding: 20px 30px;
+  text-align: center;
+}
+
+.test-page main {
+  padding: 30px;
+  color: #222;
+}
+
