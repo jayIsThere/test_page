@@ -78,7 +78,7 @@ const candidates = [
 
 export default function ProfilePage() {
 
-
+const navigate = useNavigate();
 const [metaClickCounts, setMetaClickCounts] = useState({}); // labels 클릭 수 저장
   const [selected, setSelected] = useState(candidates[0]);
   const [clickCounts, setClickCounts] = useState({}); // { 'candidateId-sectionId': count }
@@ -561,7 +561,7 @@ return (
 
 
             <div class="nav-section">
-                <a class="nav-link active"style={{ fontFamily: selected.fonts[0] }}>🏠 Übersicht</a>
+                <a class="nav-link active"style={{ fontFamily: selected.fonts[0] }}   onClick={() => navigate('/test_page/')}>🏠 Übersicht</a>
                 <div class="nav-sub">
                     <a class="nav-link"style={{ fontFamily: selected.fonts[0] }}>📄 Finalkatalog erstellen</a>
                 </div>
