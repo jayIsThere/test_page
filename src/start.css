@@ -51,6 +51,7 @@
 .navigation {
   display: none;
   align-items: center;
+  padding-left: 30px;
   gap: 2rem;
 }
 
@@ -110,7 +111,7 @@
       .parallelogram-bg {
         position: absolute;
         width: 94px;
-        height: 110px;
+        height: 90px;
         background: #808080;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
         z-index: 1;
@@ -139,8 +140,8 @@
 }
 
 .profile-avatar {
-  width: 44px;
-  height: 44px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -149,7 +150,7 @@
   overflow: hidden;
   border: 2px solid white;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .avatar-img {
