@@ -8,34 +8,34 @@ import './start.css';
 
 const candidates = [
   {
-    id: 'test1',
-    name: 'TEST1',
+    id: 'ROBOTO 4 Farben',
+    name: 'ROBOTO 4 Farben',
     colors: ['#807f7f', '#577893', '#264350', '#d4b383', '#800000'],
     fonts: ['Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
   },
     {
-    id: 'test2',
-    name: 'TEST2',
+    id: '#807f7f Verdana',
+    name: '#807f7f Verdana',
     colors: ['#807f7f', '#807f7f', '#807f7f', '#807f7f',  '#800000'],
     fonts: ['Verdana', 'Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
   },
     {
-    id: 'test3',
-    name: 'TEST3',
+    id: '#577893 Maven Pro',
+    name: '#577893 Maven Pro',
     colors: ['#577893', '#577893', '#577893', '#577893',  '#800000'],
     fonts: ['Maven Pro', 'Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
   },
     {
-    id: 'test4',
-    name: 'TEST4',
+    id: '#264350 Helvetica Neue',
+    name: '#264350 Helvetica Neue',
     colors: ['#264350', '#264350', '#264350', '#264350', '#800000'],
-    fonts: ['Maven Pro', 'Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
+    fonts: ['Helvetica Neue', 'Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
   },
     {
-    id: 'test5',
-    name: 'TEST5',
+    id: '#d4b383 Noto Sans',
+    name: '#d4b383 Noto Sans',
     colors: ['#d4b383', '#d4b383', '#d4b383', '#d4b383', '#800000'],
-    fonts: ['Maven Pro', 'Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
+    fonts: ['Noto Sans', 'Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
   },
   
   
@@ -189,7 +189,7 @@ const theme = {
             key={candidate.id}
             onClick={() => handleSelectCandidate(candidate)}
             style={{
-              marginRight: 10,
+              marginRight: 30,
               marginBottom: 8,
               padding: '10px 16px',
               backgroundColor: selected.id === candidate.id ? '#4caf50' : '#ddd',
@@ -217,29 +217,20 @@ const theme = {
     >
 
 
+
 <header class="header">
  <div class="header-container">
 
-         <div class="logo-section">
+	<img style={{width: '50px', height:'50px'}} src="https://www.cap-consulting.de/wp-content/uploads/2022/11/videocover_startseite_cap.png" alt="CAP Consulting"/>
 
-          
-             <img style={{width: '10%', height:'10%'}} src="https://www.cap-consulting.de/wp-content/uploads/2022/11/videocover_startseite_cap.png" alt=""/>
-         
-
-          <div class="title-section">
-            <h1 class="main-title">Umfrage Platform</h1>
-            <p class="subtitle-main">Wählen Sie einen Katalog für Ihre Bewertung</p>
-          </div>
-
-        </div>
 
 
         <nav class="navigation">
           <a href="#" class="nav-link" onClick={() => navigate('/test_page/')}>Start</a>
           <a href="#" class="nav-link">Features</a>
           <a href="#" class="nav-link">Über uns</a>
-          <a href="#" class="nav-button">Jetzt testen</a>
-          <a href="#" class="nav-link">Kontakt</a>
+          <a href="#" class="nav-link">Jetzt testen</a>
+          <a href="#" class="nav-button">Kontakt</a>
         </nav>
 
 
@@ -280,14 +271,21 @@ const theme = {
             </div>
           </div>
 
-          <img style={{marginRight: '200px'}} src="https://www.cap-consulting.de/wp-content/themes/capconsulting/images/Logo_CAP-Consulting_RGB.svg" alt="CAP Consulting" />
+
+<div class="title-section">
+            <h1 class="main-title" style={{ fontFamily: selected.fonts[0] }}>Umfrage Platform</h1>
+            <p class="subtitle-main" style={{ fontFamily: selected.fonts[0] }}>
+              Wählen Sie einen Katalog für Ihre Bewertung
+            </p>
+          </div>
         </div>
+
 
 
         <button class="mobile-menu-btn">
           <i class="ti ti-menu-2"></i>
         </button>
-      </div>
+</div>
 
 </header>
 
