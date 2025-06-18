@@ -207,23 +207,39 @@ const handleSendText = async () => {
     return;
   }
 
-  try {
-    const docRef = doc(db, 'texts', selected.id); // 'texts' 컬렉션 안에 selected.id 도큐먼트
-    // 예를 들어 'texts' 문서 내 'message' 필드에 저장하거나 배열로 저장할 수도 있어요.
+  const docRef = doc(db, "texts", selected.id);
 
-    // 단순히 필드 업데이트 (덮어쓰기)
-    await setDoc(docRef, { message: inputText }, { merge: true });
+  try {
+    const docSnap = await getDoc(docRef);
+
+    if (!docSnap.exists()) {
+      // 문서가 없으면 첫 메시지 저장 + messageCount 초기화
+      await setDoc(docRef, {
+        messageCount: 1,
+        message: inputText,
+      });
+    } else {
+      const data = docSnap.data();
+      const count = data.messageCount || 0;
+      const newCount = count + 1;
+
+      // 동적으로 필드명 생성
+      const newField = `message${newCount}`;
+
+      // 필드 추가 + messageCount 증가
+      await updateDoc(docRef, {
+        [newField]: inputText,
+        messageCount: newCount,
+      });
+    }
 
     alert('Richtig gesendet. Vielen Dank!');
-    setInputText(''); // 입력창 초기화
+    setInputText('');
   } catch (error) {
-    console.error('Firebase Error:', error);
-    alert('Problem mit der Datenübertragung!');
+    console.error("Error sending message:", error);
+    alert("Problem mit der Datenübertragung!");
   }
 };
-
-
-
 
 
 
