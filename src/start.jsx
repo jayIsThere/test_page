@@ -5,71 +5,142 @@ import { db, doc, getDoc, setDoc, updateDoc, increment } from './firebase';
 import * as Tooltip from '@radix-ui/react-tooltip';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import './start.css';
+import logo from './assets/Logo_CAP_Consulting_RGB_Darkblue.svg';
+
 
 const candidates = [
   {
-    id: 'ROBOTO 4 Farben',
-    name: 'ROBOTO 4 Farben',
-    colors: ['#807f7f', '#577893', '#264350', '#d4b383', '#800000'],
-    fonts: ['Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
+    id: '4 Farben',
+    name: '4 Farben',
+    colors: ['#808080', '#56768f', '#264555', '#d2c9b9'],
+    fontWeight: {
+      header: '700',
+      title: '600',
+      subtitle: '400',
+      button: '500',
+      usw: '200'
+    },
+    fontColor: {color:''},
   },
-    {
-    id: '#807f7f Verdana',
-    name: '#807f7f Verdana',
-    colors: ['#807f7f', '#807f7f', '#807f7f', '#807f7f',  '#800000'],
-    fonts: ['Verdana', 'Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
-  },
-    {
-    id: '#577893 Maven Pro',
-    name: '#577893 Maven Pro',
-    colors: ['#577893', '#577893', '#577893', '#577893',  '#800000'],
-    fonts: ['Maven Pro', 'Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
-  },
-    {
-    id: '#264350 Helvetica Neue',
-    name: '#264350 Helvetica Neue',
-    colors: ['#264350', '#264350', '#264350', '#264350', '#800000'],
-    fonts: ['Helvetica Neue', 'Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
-  },
-    {
-    id: '#d4b383 Noto Sans',
-    name: '#d4b383 Noto Sans',
-    colors: ['#d4b383', '#d4b383', '#d4b383', '#d4b383', '#800000'],
-    fonts: ['Noto Sans', 'Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
-  },
-  
-  
   {
-    id: 'red-gothic',
-    name: 'RED GOTHIC',
+    id: 'Grau',
+    name: 'Grau',
+    colors: ['#808080', '#808080', '#808080', '#808080'],
+    fontWeight: {
+      header: '600',
+      title: '500',
+      subtitle: '400',
+      button: '600',
+      usw: '300'
+    },
+    fontColor: {color:''},
+  },
+  {
+    id: 'Blaugrau',
+    name: 'Blaugrau',
+    colors: ['#56768f', '#56768f', '#56768f', '#56768f'],
+    fontWeight: {
+      header: '700',
+      title: '600',
+      subtitle: '500',
+      button: '600',
+      usw: '200'
+    },
+    fontColor: {color:''},
+  },
+  {
+    id: 'Dunkelblau',
+    name: 'Dunkelblau',
+    colors: ['#264555', '#264555', '#264555', '#264555'],
+    fontWeight: {
+      header: '600',
+      title: '600',
+      subtitle: '400',
+      button: '500',
+      usw: '300'
+    },
+    fontColor: {color:''},
+  },
+  {
+    id: 'Beige',
+    name: 'Beige',
+    colors: ['#d2c9b9', '#d2c9b9', '#d2c9b9', '#d2c9b9'],
+    fontWeight: {
+      header: '700',
+      title: '600',
+      subtitle: '400',
+      button: '500',
+      usw: '200'
+    },
+        fontColor: {color: 'black'},
+  },
+  {
+    id: 'red',
+    name: 'RED',
     colors: ['#ff4d4d', '#ff9999', '#cc0000', '#ff6666', '#800000'],
-    fonts: ['Arial, sans-serif', 'Arial Black, sans-serif', 'Arial, sans-serif', 'Arial, sans-serif', 'Arial, sans-serif'],
+    fontWeight: {
+      header: '700',
+      title: '700',
+      subtitle: '500',
+      button: '600',
+      usw: '300'
+    },
+    fontColor: {color:''},
   },
   {
-    id: 'blue-serif',
-    name: 'BLUE SERIF',
+    id: 'blue',
+    name: 'BLUE',
     colors: ['#4d79ff', '#99b3ff', '#0033cc', '#668cff', '#001a66'],
-    fonts: ['"Times New Roman", serif', '"Georgia", serif', '"Times New Roman", serif', '"Times New Roman", serif', '"Georgia", serif'],
+    fontWeight: {
+      header: '600',
+      title: '500',
+      subtitle: '400',
+      button: '500',
+      usw: '200'
+    },
+    fontColor: {color:''},
   },
   {
-    id: 'green-mono',
-    name: 'GREEN MONO',
+    id: 'green',
+    name: 'GREEN',
     colors: ['#33cc33', '#99ff99', '#009900', '#66cc66', '#004d00'],
-    fonts: ['"Courier New", monospace', '"Courier New", monospace', '"Lucida Console", monospace', '"Courier New", monospace', '"Courier New", monospace'],
+    fontWeight: {
+      header: '700',
+      title: '600',
+      subtitle: '400',
+      button: '600',
+      usw: '300'
+    },
+    fontColor: {color:''},
   },
   {
-    id: 'purple-cursive',
-    name: 'PURPLE CURSIVE',
+    id: 'purple',
+    name: 'PURPLE',
     colors: ['#9933cc', '#cc99ff', '#660099', '#b266ff', '#33004d'],
-    fonts: ['"Comic Sans MS", cursive, sans-serif', '"Comic Sans MS", cursive, sans-serif', '"Brush Script MT", cursive', '"Comic Sans MS", cursive, sans-serif', '"Comic Sans MS", cursive, sans-serif'],
+    fontWeight: {
+      header: '600',
+      title: '600',
+      subtitle: '400',
+      button: '500',
+      usw: '300'
+    },
+    fontColor: {color:''},
   },
   {
-    id: 'orange-sans',
-    name: 'ORANGE SANSERIF',
+    id: 'orange',
+    name: 'ORANGE',
     colors: ['#ff6600', '#ffb266', '#cc5200', '#ff8533', '#804000'],
-    fonts: ['"Verdana", sans-serif', '"Verdana", sans-serif', '"Geneva", sans-serif', '"Verdana", sans-serif', '"Verdana", sans-serif'],
+    fontWeight: {
+      header: '700',
+      title: '600',
+      subtitle: '400',
+      button: '600',
+      usw: '200'
+    },
+    fontColor: {color:''},
   },
 ];
+
 
 const sections = [
   { id: 'header', label: 'HEADER' },
@@ -85,30 +156,13 @@ const sections = [
 export default function ComplexMultiVariant() {
  const navigate = useNavigate();
 const [metaClickCounts, setMetaClickCounts] = useState({}); // labels 클릭 수 저장
-  const [selected, setSelected] = useState(candidates[0]);
-  const [clickCounts, setClickCounts] = useState({}); // { 'candidateId-sectionId': count }
-  const [loading, setLoading] = useState(false);
+const [selected, setSelected] = useState(candidates[0]);
+const [loading, setLoading] = useState(false);
+const [inputText, setInputText] = useState('');
 
 const handleSelectCandidate = (candidate) => {
   setSelected(candidate);
 };
-const fetchClickCounts = async (candidateId) => {
-  setLoading(true);
-  const docRef = doc(db, 'clicks', candidateId);
-  const docSnap = await getDoc(docRef);
-  if (docSnap.exists()) {
-    setClickCounts(docSnap.data());
-  } else {
-    const emptyCounts = {};
-    sections.forEach(s => {
-      emptyCounts[s.id] = 0;
-    });
-    setClickCounts(emptyCounts);
-    await setDoc(docRef, emptyCounts);
-  }
-  setLoading(false);
-};
-
 
 const fetchMetaClickCounts = async (candidateId) => {
   setLoading(true);
@@ -128,7 +182,6 @@ const fetchMetaClickCounts = async (candidateId) => {
 };
 
 useEffect(() => {
-  fetchClickCounts(selected.id);
   fetchMetaClickCounts(selected.id);
 }, [selected]);
 
@@ -144,8 +197,33 @@ const handleMetaClick = async (label) => {
     alert(`${selected.name} - ${label} Klicks: ${newCounts[label]}`);
     return newCounts;
   });
+};
 
-  };
+
+
+const handleSendText = async () => {
+  if (!inputText.trim()) {
+    alert('Schreiben Sie bitte erst etwas!');
+    return;
+  }
+
+  try {
+    const docRef = doc(db, 'texts', selected.id); // 'texts' 컬렉션 안에 selected.id 도큐먼트
+    // 예를 들어 'texts' 문서 내 'message' 필드에 저장하거나 배열로 저장할 수도 있어요.
+
+    // 단순히 필드 업데이트 (덮어쓰기)
+    await setDoc(docRef, { message: inputText }, { merge: true });
+
+    alert('Richtig gesendet. Vielen Dank!');
+    setInputText(''); // 입력창 초기화
+  } catch (error) {
+    console.error('Firebase Error:', error);
+    alert('Problem mit der Datenübertragung!');
+  }
+};
+
+
+
 
 
 
@@ -154,11 +232,10 @@ const theme = {
   primary: selected.colors[1],
   accent: selected.colors[2],
   text: selected.colors[4],
-  font: selected.fonts[1],
 };
 
 
-  const labels = ['Schriftart', 'Farbe', 'Struktur', 'Icon', 'Layout'];
+  const labels = ['Schriftgewicht', 'Hintergrundfarbe', 'Schriftfarbe', 'Layout'];
   
   
 
@@ -168,13 +245,14 @@ const theme = {
     return (
     
        <div   style={{
-    fontFamily: theme.font,
+       fontWeight: selected.fontWeight.title,
     backgroundColor: 'black',
     color: 'white',
     minHeight: '100vh',
     transition: 'all 0.3s ease',
     padding: 20,
     textAlign: 'center',
+    
   }}>
       <h1>Test Page</h1>
 
@@ -198,6 +276,7 @@ const theme = {
               borderRadius: 5,
               cursor: 'pointer',
               fontSize: 14,
+              fontWeight: selected.fontWeight.button,
             }}
           >
             {candidate.name}
@@ -207,12 +286,13 @@ const theme = {
 
     <div
       style={{
-        fontFamily: selected.fonts[0],
         backgroundColor: '#f9fafb',
         color: '#fff',
         minHeight: '100vh',
         padding: 20,
         transition: 'all 0.3s ease',
+        width: '90%',       
+    margin: '0 auto', 
       }}
     >
 
@@ -221,16 +301,16 @@ const theme = {
 <header class="header">
  <div class="header-container">
 
-	<img style={{width: '50px', height:'50px'}} src="https://www.cap-consulting.de/wp-content/uploads/2022/11/videocover_startseite_cap.png" alt="CAP Consulting"/>
+	<img style={{width: '170px', height:'170px'}} src={logo} alt="CAP Consulting"/>
 
 
 
         <nav class="navigation">
-          <a href="#" class="nav-link" onClick={() => navigate('/test_page/')}>Start</a>
-          <a href="#" class="nav-link">Features</a>
-          <a href="#" class="nav-link">Über uns</a>
-          <a href="#" class="nav-link">Jetzt testen</a>
-          <a href="#" class="nav-button">Kontakt</a>
+          <a href="#" class="nav-link" onClick={() => navigate('/test_page/')} style={{ fontWeight: selected.fontWeight.button }}>Start</a>
+          <a href="#" class="nav-link"style={{ fontWeight: selected.fontWeight.button }}>Features</a>
+          <a href="#" class="nav-link"style={{ fontWeight: selected.fontWeight.button }}>Über uns</a>
+          <a href="#" class="nav-link"style={{ fontWeight: selected.fontWeight.button }}>Jetzt testen</a>
+          <a href="#" class="nav-button"style={{ fontWeight: selected.fontWeight.button }}>Kontakt</a>
         </nav>
 
 
@@ -259,6 +339,7 @@ const theme = {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 class="dropdown-icon"
+                style={{ marginLeft: '4px' }}
               >
                 <path
                   d="M2 2L8 8L14 2"
@@ -273,8 +354,8 @@ const theme = {
 
 
 <div class="title-section">
-            <h1 class="main-title" style={{ fontFamily: selected.fonts[0] }}>Umfrage Platform</h1>
-            <p class="subtitle-main" style={{ fontFamily: selected.fonts[0] }}>
+            <h1 class="main-title" style={{ fontWeight: selected.fontWeight.header }}>Umfrage Platform</h1>
+            <p class="subtitle-main" style={{ fontWeight: selected.fontWeight.subtitle }}>
               Wählen Sie einen Katalog für Ihre Bewertung
             </p>
           </div>
@@ -290,40 +371,70 @@ const theme = {
 </header>
 
 
-
- <div style={{ marginTop: 10, textAlign: 'left' }}>
-  <p style={{ fontWeight: 'bold', marginBottom: 8, color: 'black'}}>
-    Klicken Sie bitte an, was Ihnen besonders gefällt. (Multiple Choice)
-  </p>
-      <div
-        style={{
-          display: 'flex',
-          gap: '10px',
-          justifyContent: 'flex-start',
-          flexWrap: 'wrap',
-        }}
-      >
-        {labels.map((label) => (
-          <button
-            key={label}
-            onClick={() => handleMetaClick(label)}
-            style={{
-              padding: '6px 12px',
-              fontSize: 13,
-              borderRadius: 4,
-              border: '1px solid #ccc',
-              backgroundColor: '#fff',
-              cursor: 'pointer',
-              color: '#333',
-            }}
-          >
-            {label}
-          </button>
-        ))}
-      </div>
+<div style={{ marginTop: 10, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+  {/* 왼쪽: 버튼 그룹 */}
+  <div style={{ textAlign: 'left', flex: 1, marginRight: 20 }}>
+    <p style={{ fontWeight: 'bold', marginBottom: 8, color: 'black' }}>
+      Klicken Sie bitte an, was Ihnen besonders gefällt. (Multiple Choice)
+    </p>
+    <div
+      style={{
+        display: 'flex',
+        gap: '10px',
+        justifyContent: 'flex-start',
+        flexWrap: 'wrap',
+      }}
+    >
+      {labels.map((label) => (
+        <button
+          key={label}
+          onClick={() => handleMetaClick(label)}
+          style={{
+            padding: '6px 12px',
+            fontSize: 13,
+            borderRadius: 4,
+            border: '1px solid #ccc',
+            backgroundColor: '#fff',
+            cursor: 'pointer',
+            color: '#333',
+          }}
+        >
+          {label}
+        </button>
+      ))}
+    </div>
   </div>
 
-
+  {/* 오른쪽: 텍스트 입력 + 버튼 */}
+  <div style={{ textAlign: 'left', flexBasis: '300px', paddingLeft: 10, paddingRight: 10  }}>
+    <p style={{ fontWeight: 'bold', marginBottom: 8, color: 'black' }}>
+      Ihre Meinung
+    </p>
+    <textarea
+  value={inputText}
+  onChange={(e) => setInputText(e.target.value)}
+  placeholder="Was denken Sie über dieses Design?"
+  style={{
+    padding: '8px',
+    width: '90%',
+    height: '60px', // 대략 3줄 정도 높이
+    marginBottom: '10px',
+    resize: 'vertical', // 사용자가 세로 크기 조절 가능하게 (선택 사항)
+  }}
+/>
+    <button
+      onClick={handleSendText}
+      style={{
+        padding: '8px 16px',
+        cursor: 'pointer',
+        fontWeight: selected.fontWeight.button,
+        width: '95%',
+      }}
+    >
+      Absenden
+    </button>
+  </div>
+</div>
 
 
 
@@ -345,9 +456,9 @@ const theme = {
         </div>
       </nav>
     </div>
-<section class="main" style={{ fontFamily: selected.fonts[0] }}>
-  <h1>Willkommen zur Umfrage</h1>
-  <p>Beantworten Sie gezielt strukturierte Fragenkataloge und helfen Sie dabei, strategische Themen in Ihrem Unternehmen zu analysieren.</p>
+<section class="main">
+  <h1 style={{ fontWeight: selected.fontWeight.title }}>Willkommen zur Umfrage</h1>
+  <p style={{ fontWeight: selected.fontWeight.usw }}>Beantworten Sie gezielt strukturierte Fragenkataloge und helfen Sie dabei, strategische Themen in Ihrem Unternehmen zu analysieren.</p>
 </section>
 
 <section class="stats">
@@ -359,119 +470,119 @@ const theme = {
 
 
   
-<section class="catalogs">
+<section class="catalogs" >
 
-  <div class="survey-card"  style={{ fontFamily: selected.fonts[0] }}>
-    <div class="card-top blue" style={{ background: selected.colors[0] }}>
+  <div class="survey-card"  style={{ fontWeight: selected.fontWeight.title }}>
+    <div class="card-top blue" style={{ background: selected.colors[0], color: selected.fontColor.color }}>
       <div class="top-row">
-        <span class="tag">IT-Strategie</span>
-        <span class="questions">👤 25 Fragen</span>
+        <span class="tag"style={{ fontWeight: selected.fontWeight.usw }}>IT-Strategie</span>
+        <span class="questions"style={{ fontWeight: selected.fontWeight.usw }}>👤 25 Fragen</span>
       </div>
       <h2>IT-Strategie Grundlagen</h2>
-      <p class="subtitle1">Bewertung der grundlegenden IT-Strategien und deren Umsetzung in Ihrem Unternehmen.</p>
+      <p class="subtitle1"style={{ fontWeight: selected.fontWeight.subtitle }}>Bewertung der grundlegenden IT-Strategien und deren Umsetzung in Ihrem Unternehmen.</p>
     </div>
     <div class="card-bottom">
       <div class="info-row">
-        <span class="info"><span class="dot green"></span>Geschätzte Zeit: 15–20 Min</span>
-        <span class="info"><span class="dot blue"></span>Interaktiv</span>
+        <span class="info"><span class="dot green"style={{ fontWeight: selected.fontWeight.usw }}></span>Geschätzte Zeit: 15–20 Min</span>
+        <span class="info"><span class="dot blue"style={{ fontWeight: selected.fontWeight.usw }}></span>Interaktiv</span>
       </div>
       <div class="features">
         <strong>Umfrage-Features:</strong>
-        <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
+        <ul style={{ listStyleType: 'none', paddingLeft: 0, fontWeight: selected.fontWeight.usw }}>
           <li>✔️ Dynamische Fragentiefe</li>
           <li>✔️ Echtzeit-Fortschrittsanzeigen</li>
           <li>✔️ Adaptive Fragenfelder</li>
         </ul>
       </div>
-      <button class="start-button blue-btn" style={{ background: selected.colors[0] }}>Umfrage starten →</button>
+      <button class="start-button blue-btn" style={{ fontWeight: selected.fontWeight.button,  background: selected.colors[0], color: selected.fontColor.color }}>Umfrage starten →</button>
     </div>
   </div>
 
 
-  <div class="survey-card" style={{ fontFamily: selected.fonts[0] }}>
-    <div class="card-top orange" style={{ background: selected.colors[1] }}>
+  <div class="survey-card" style={{ fontWeight: selected.fontWeight.title }}>
+    <div class="card-top orange" style={{ background: selected.colors[1], color: selected.fontColor.color }}>
       <div class="top-row">
-        <span class="tag">Cybersecurity</span>
-        <span class="questions">👤 20 Fragen</span>
+        <span class="tag"style={{ fontWeight: selected.fontWeight.usw }}>Cybersecurity</span>
+        <span class="questions"style={{ fontWeight: selected.fontWeight.usw }}>👤 20 Fragen</span>
       </div>
       <h2>Cybersecurity Assessment</h2>
       <p class="subtitle1">Erhebung des Reifegrads Ihrer Informationssicherheit anhand konkreter Maßnahmen.</p>
     </div>
     <div class="card-bottom">
       <div class="info-row">
-        <span class="info"><span class="dot green"></span>Geschätzte Zeit: 20 Min</span>
-        <span class="info"><span class="dot blue"></span>Interaktiv</span>
+        <span class="info"><span class="dot green"style={{ fontWeight: selected.fontWeight.usw }}></span>Geschätzte Zeit: 20 Min</span>
+        <span class="info"><span class="dot blue"style={{ fontWeight: selected.fontWeight.usw }}></span>Interaktiv</span>
       </div>
       <div class="features">
         <strong>Umfrage-Features:</strong>
-        <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
+        <ul style={{ listStyleType: 'none', paddingLeft: 0, fontWeight: selected.fontWeight.usw}}>
           <li>✔️ Maßnahmenübersicht</li>
           <li>✔️ Schwachstellen-Identifikation</li>
           <li>✔️ ISO-Nähe Bewertung</li>
         </ul>
       </div>
-      <button class="start-button orange-btn" style={{ background: selected.colors[1] }}>Umfrage starten →</button>
+      <button class="start-button orange-btn" style={{ fontWeight: selected.fontWeight.button,  background: selected.colors[1], color: selected.fontColor.color }}>Umfrage starten →</button>
     </div>
   </div>
 
 
-  <div class="survey-card" style={{ fontFamily: selected.fonts[0] }}>
-    <div class="card-top green" style={{ background: selected.colors[2] }}>
+  <div class="survey-card" style={{ fontWeight: selected.fontWeight.title }}>
+    <div class="card-top green" style={{ background: selected.colors[2], color: selected.fontColor.color }}>
       <div class="top-row">
-        <span class="tag">Digitalisierung</span>
-        <span class="questions">👤 18 Fragen</span>
+        <span class="tag" style={{ fontWeight: selected.fontWeight.usw }}>Digitalisierung</span>
+        <span class="questions" style={{ fontWeight: selected.fontWeight.usw }}>👤 18 Fragen</span>
       </div>
       <h2>Digital Transformation</h2>
-      <p class="subtitle1">Bewertung des Digitalisierungsgrads Ihres Unternehmens im Branchenvergleich.</p>
+      <p class="subtitle1" style={{ fontWeight: selected.fontWeight.subtitle }}>Bewertung des Digitalisierungsgrads Ihres Unternehmens im Branchenvergleich.</p>
     </div>
     <div class="card-bottom">
       <div class="info-row">
-        <span class="info"><span class="dot green"></span>15 Min</span>
-        <span class="info"><span class="dot blue"></span>Interaktiv</span>
+        <span class="info"><span class="dot green" style={{ fontWeight: selected.fontWeight.usw }}></span>15 Min</span>
+        <span class="info"><span class="dot blue" style={{ fontWeight: selected.fontWeight.usw }}></span>Interaktiv</span>
       </div>
       <div class="features">
         <strong>Umfrage-Features:</strong>
-        <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
+        <ul style={{ listStyleType: 'none', paddingLeft: 0, fontWeight: selected.fontWeight.usw }}>
           <li>✔️ Benchmark-Vergleich</li>
           <li>✔️ Reifegradmodelle</li>
           <li>✔️ Automatische Auswertung</li>
         </ul>
       </div>
-      <button class="start-button green-btn"   style={{ background: selected.colors[2] }}>Umfrage starten →</button>
+      <button class="start-button green-btn"   style={{ fontWeight: selected.fontWeight.button,  background: selected.colors[2], color: selected.fontColor.color }}>Umfrage starten →</button>
     </div>
   </div>
 
 
-  <div class="survey-card" style={{ fontFamily: selected.fonts[0] }}>
-    <div class="card-top purple" style={{ background: selected.colors[3] }}>
+  <div class="survey-card" style={{ fontWeight: selected.fontWeight.title }}>
+    <div class="card-top purple" style={{ background: selected.colors[3], color: selected.fontColor.color }}>
       <div class="top-row">
-        <span class="tag">Datenstrategie</span>
-        <span class="questions">👤 22 Fragen</span>
+        <span class="tag"style={{ fontWeight: selected.fontWeight.usw }}>Datenstrategie</span>
+        <span class="questions"style={{ fontWeight: selected.fontWeight.usw }}>👤 22 Fragen</span>
       </div>
       <h2>Data Management</h2>
       <p class="subtitle1">Analyse der Datenmanagementstruktur und des Datenstrategie-Reifegrads Ihres Unternehmens.</p>
     </div>
     <div class="card-bottom">
       <div class="info-row">
-        <span class="info"><span class="dot green"></span>20 Min</span>
-        <span class="info"><span class="dot blue"></span>Interaktiv</span>
+        <span class="info"><span class="dot green"style={{ fontWeight: selected.fontWeight.usw }}></span>20 Min</span>
+        <span class="info"><span class="dot blue"style={{ fontWeight: selected.fontWeight.usw }}></span>Interaktiv</span>
       </div>
       <div class="features">
         <strong>Umfrage-Features:</strong>
-        <ul style={{ listStyleType: 'none', paddingLeft: 0 }}>
+        <ul style={{ listStyleType: 'none', paddingLeft: 0, fontWeight: selected.fontWeight.usw }}>
           <li>✔️ DQ-Check</li>
           <li>✔️ Governance-Analyse</li>
           <li>✔️ Zukunftsfähigkeit</li>
         </ul>
       </div>
-      <button class="start-button purple-btn"   style={{ background: selected.colors[3] }}>Umfrage starten →</button>
+      <button class="start-button purple-btn"   style={{ fontWeight: selected.fontWeight.button, background: selected.colors[3], color: selected.fontColor.color }}>Umfrage starten →</button>
     </div>
   </div>
 </section>
 
 
       {/* Footer */}
-      <footer style={{ fontFamily: selected.fonts[0], backgroundColor: '#f9fafb', color: '#fff', padding: '20px', marginTop: 40 }}>
+      <footer style={{ fontWeight: selected.fontWeight.subtitle,  backgroundColor: '#f9fafb', color: '#fff', padding: '20px', marginTop: 40 }}>
         <p>&copy; 2025 CAP Consulting. Alle Rechte vorbehalten.</p>
         <div className="secure-box">Ihre Daten sind sicher und geschützt.</div>
       </footer>

@@ -9,66 +9,168 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 
 const candidates = [
   {
-    id: 'test1-2',
-    name: 'TEST1-2',
-    colors: ['#807f7f', '#577893', '#264350', '#d4b383', '#800000'],
-    fonts: ['Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
+    id: '4 Farben',
+    name: '4 Farben',
+    colors: ['#808080', '#56768f', '#264555', '#d2c9b9'],
+    fontWeight: {
+      header: '700',
+      title: '600',
+      subtitle: '400',
+      button: '500',
+      usw: '200'
+    },
+    fontColor: {color:''},
+    emoji: {fragenkatalog:'', uebersicht: '', final: '', itstrategie:'', projektmanagement:'', sourcing:'', betriebsmodell: ''}
+
   },
-    {
-    id: 'test2-2',
-    name: 'TEST2-2',
-    colors: ['#807f7f', '#807f7f', '#807f7f', '#807f7f',  '#800000'],
-    fonts: ['Verdana', 'Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
-  },
-    {
-    id: 'test3-2',
-    name: 'TEST3-2',
-    colors: ['#577893', '#577893', '#577893', '#577893',  '#800000'],
-    fonts: ['Maven Pro', 'Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
-  },
-    {
-    id: 'test4-2',
-    name: 'TEST4-2',
-    colors: ['#264350', '#264350', '#264350', '#264350', '#800000'],
-    fonts: ['Maven Pro', 'Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
-  },
-    {
-    id: 'test5-2',
-    name: 'TEST5-2',
-    colors: ['#d4b383', '#d4b383', '#d4b383', '#d4b383', '#800000'],
-    fonts: ['Maven Pro', 'Roboto', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
-  },
-  
-  
   {
-    id: 'red-gothic-2',
-    name: 'RED GOTHIC-2',
+    id: '4 Farben mit emojis',
+    name: '4 Farben mit emojis',
+    colors: ['#808080', '#56768f', '#264555', '#d2c9b9'],
+    fontWeight: {
+      header: '700',
+      title: '600',
+      subtitle: '400',
+      button: '500',
+      usw: '200'
+    },
+    fontColor: {color:''},
+    emoji: {fragenkatalog:'📘 ', uebersicht: '🏠 ', final: '📄 ', itstrategie:'🎯 ', projektmanagement:'🛠️ ', sourcing:'📦 ', betriebsmodell: '🏢 '}
+  },
+  {
+    id: 'Grau',
+    name: 'Grau',
+    colors: ['#808080', '#808080', '#808080', '#808080'],
+    fontWeight: {
+      header: '600',
+      title: '500',
+      subtitle: '400',
+      button: '600',
+      usw: '300'
+    },
+    fontColor: {color:''},
+    emoji: {fragenkatalog:'', uebersicht: '', final: '', itstrategie:'', projektmanagement:'', sourcing:'', betriebsmodell: ''}
+
+  },
+  {
+    id: 'Blaugrau',
+    name: 'Blaugrau',
+    colors: ['#56768f', '#56768f', '#56768f', '#56768f'],
+    fontWeight: {
+      header: '700',
+      title: '600',
+      subtitle: '500',
+      button: '600',
+      usw: '200'
+    },
+    fontColor: {color:''},
+    emoji: {fragenkatalog:'', uebersicht: '', final: '', itstrategie:'', projektmanagement:'', sourcing:'', betriebsmodell: ''}
+
+  },
+  {
+    id: 'Dunkelblau',
+    name: 'Dunkelblau',
+    colors: ['#264555', '#264555', '#264555', '#264555'],
+    fontWeight: {
+      header: '600',
+      title: '600',
+      subtitle: '400',
+      button: '500',
+      usw: '300'
+    },
+    fontColor: {color:''},
+    emoji: {fragenkatalog:'', uebersicht: '', final: '', itstrategie:'', projektmanagement:'', sourcing:'', betriebsmodell: ''}
+
+  },
+  {
+    id: 'Beige',
+    name: 'Beige',
+    colors: ['#d2c9b9', '#d2c9b9', '#d2c9b9', '#d2c9b9'],
+    fontWeight: {
+      header: '700',
+      title: '600',
+      subtitle: '400',
+      button: '500',
+      usw: '200'
+    },
+        fontColor: {color: 'black'},
+        emoji: {fragenkatalog:'', uebersicht: '', final: '', itstrategie:'', projektmanagement:'', sourcing:'', betriebsmodell: ''}
+
+  },
+  {
+    id: 'red',
+    name: 'RED',
     colors: ['#ff4d4d', '#ff9999', '#cc0000', '#ff6666', '#800000'],
-    fonts: ['Arial, sans-serif', 'Arial Black, sans-serif', 'Arial, sans-serif', 'Arial, sans-serif', 'Arial, sans-serif'],
+    fontWeight: {
+      header: '700',
+      title: '700',
+      subtitle: '500',
+      button: '600',
+      usw: '300'
+    },
+    fontColor: {color:''},
+    emoji: {fragenkatalog:'', uebersicht: '', final: '', itstrategie:'', projektmanagement:'', sourcing:'', betriebsmodell: ''}
+
   },
   {
-    id: 'blue-serif-2',
-    name: 'BLUE SERIF-2',
+    id: 'blue',
+    name: 'BLUE',
     colors: ['#4d79ff', '#99b3ff', '#0033cc', '#668cff', '#001a66'],
-    fonts: ['"Times New Roman", serif', '"Georgia", serif', '"Times New Roman", serif', '"Times New Roman", serif', '"Georgia", serif'],
+    fontWeight: {
+      header: '600',
+      title: '500',
+      subtitle: '400',
+      button: '500',
+      usw: '200'
+    },
+    fontColor: {color:''},
+    emoji: {fragenkatalog:'', uebersicht: '', final: '', itstrategie:'', projektmanagement:'', sourcing:'', betriebsmodell: ''}
+
   },
   {
-    id: 'green-mono-2',
-    name: 'GREEN MONO-2',
+    id: 'green',
+    name: 'GREEN',
     colors: ['#33cc33', '#99ff99', '#009900', '#66cc66', '#004d00'],
-    fonts: ['"Courier New", monospace', '"Courier New", monospace', '"Lucida Console", monospace', '"Courier New", monospace', '"Courier New", monospace'],
+    fontWeight: {
+      header: '700',
+      title: '600',
+      subtitle: '400',
+      button: '600',
+      usw: '300'
+    },
+    fontColor: {color:''},
+    emoji: {fragenkatalog:'', uebersicht: '', final: '', itstrategie:'', projektmanagement:'', sourcing:'', betriebsmodell: ''}
+
   },
   {
-    id: 'purple-cursive-2',
-    name: 'PURPLE CURSIVE-2',
+    id: 'purple',
+    name: 'PURPLE',
     colors: ['#9933cc', '#cc99ff', '#660099', '#b266ff', '#33004d'],
-    fonts: ['"Comic Sans MS", cursive, sans-serif', '"Comic Sans MS", cursive, sans-serif', '"Brush Script MT", cursive', '"Comic Sans MS", cursive, sans-serif', '"Comic Sans MS", cursive, sans-serif'],
+    fontWeight: {
+      header: '600',
+      title: '600',
+      subtitle: '400',
+      button: '500',
+      usw: '300'
+    },
+    fontColor: {color:''},
+    emoji: {fragenkatalog:'', uebersicht: '', final: '', itstrategie:'', projektmanagement:'', sourcing:'', betriebsmodell: ''}
+
   },
   {
-    id: 'orange-sans-2',
-    name: 'ORANGE SANSERIF-2',
+    id: 'orange',
+    name: 'ORANGE',
     colors: ['#ff6600', '#ffb266', '#cc5200', '#ff8533', '#804000'],
-    fonts: ['"Verdana", sans-serif', '"Verdana", sans-serif', '"Geneva", sans-serif', '"Verdana", sans-serif', '"Verdana", sans-serif'],
+    fontWeight: {
+      header: '700',
+      title: '600',
+      subtitle: '400',
+      button: '600',
+      usw: '200'
+    },
+    fontColor: {color:''},
+    emoji: {fragenkatalog:'', uebersicht: '', final: '', itstrategie:'', projektmanagement:'', sourcing:'', betriebsmodell: ''}
+
   },
 ];
 
@@ -83,6 +185,7 @@ const [metaClickCounts, setMetaClickCounts] = useState({}); // labels 클릭 수
   const [selected, setSelected] = useState(candidates[0]);
   const [clickCounts, setClickCounts] = useState({}); // { 'candidateId-sectionId': count }
   const [loading, setLoading] = useState(false);
+const [inputText, setInputText] = useState('');
 
 const handleSelectCandidate = (candidate) => {
   setSelected(candidate);
@@ -144,16 +247,42 @@ const handleMetaClick = async (label) => {
 
 
 
+const handleSendText = async () => {
+  if (!inputText.trim()) {
+    alert('Schreiben Sie bitte erst etwas!');
+    return;
+  }
+
+  try {
+    const docRef = doc(db, 'texts', selected.id); // 'texts' 컬렉션 안에 selected.id 도큐먼트
+    // 예를 들어 'texts' 문서 내 'message' 필드에 저장하거나 배열로 저장할 수도 있어요.
+
+    // 단순히 필드 업데이트 (덮어쓰기)
+    await setDoc(docRef, { message: inputText }, { merge: true });
+
+    alert('Richtig gesendet. Vielen Dank!');
+    setInputText(''); // 입력창 초기화
+  } catch (error) {
+    console.error('Firebase Error:', error);
+    alert('Problem mit der Datenübertragung!');
+  }
+};
+
+
+
+
+
+
+
 const theme = {
   background: selected.colors[0],
   primary: selected.colors[1],
   accent: selected.colors[2],
   text: selected.colors[4],
-  font: selected.fonts[1],
 };
 
 
-  const labels = ['Schriftart', 'Farbe', 'Struktur', 'Icon', 'Layout'];
+  const labels = ['Schriftgewicht', 'Hintergrundfarbe', 'Schriftfarbe', 'Layout'];
   
   
 
@@ -173,11 +302,10 @@ return (
     transition: 'all 0.3s ease',
     padding: 20,
     textAlign: 'center',
+    width: '115%',       
+    margin: '0 auto', 
   }}>
       <h1 style={{ marginBottom: 20}}>Test Page</h1>
-
-
-    
 
 
 
@@ -203,50 +331,24 @@ return (
         ))}
       </div>
 
-
-
-
- <div style={{ marginTop: 10, textAlign: 'right' }}>
-  <p style={{ fontWeight: 'bold', marginBottom: 8, color: 'white'}}>
-    Klicken Sie bitte an, was Ihnen besonders gefällt. (Multiple Choice)
-  </p>
-      <div
-        style={{
-          display: 'flex',
-          gap: '10px',
-          justifyContent: 'flex-end',
-          flexWrap: 'wrap',
-          padding: '10px'
-        }}
-      >
-        {labels.map((label) => (
-          <button
-            key={label}
-            onClick={() => handleMetaClick(label)}
-            style={{
-              padding: '6px 12px',
-              fontSize: 13,
-              borderRadius: 4,
-              border: '1px solid #ccc',
-              backgroundColor: '#fff',
-              cursor: 'pointer',
-              color: '#333',
-            }}
-          >
-            {label}
-          </button>
-        ))}
-      </div>
-  </div>
-
-
  
 <style>{`
+
+
+
+@font-face {
+  font-family: 'MavenPro';
+  src: url('./assets/font/MavenPro-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "MavenPro", sans-serif;
   }
   
         .app-container {
@@ -310,7 +412,6 @@ return (
   
   .nav-link {
     display: block;
-    font-weight: 600;
     color: #f1f5f9;
     text-decoration: none;
     padding: 4px 0;
@@ -369,6 +470,7 @@ return (
     font-size: 24px;
     display: block;
     margin-top: 4px;
+    color: #4f46e5;
   }
   
   .topics {
@@ -389,7 +491,6 @@ return (
   
   .section-header h2 {
     font-size: 18px;
-    font-weight: 600;
     color: #1f2937;
   }
   
@@ -553,42 +654,120 @@ return (
   
 `}</style>
 
+
+
+
+
+    
+<div style={{ marginTop: 10, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+  {/* 왼쪽: 버튼 그룹 */}
+  <div style={{ textAlign: 'left', flex: 1, marginRight: 20 }}>
+    <p style={{ fontWeight: 'bold', marginBottom: 8, color: 'white' }}>
+      Klicken Sie bitte an, was Ihnen besonders gefällt. (Multiple Choice)
+    </p>
+    <div
+      style={{
+        display: 'flex',
+        gap: '10px',
+        justifyContent: 'flex-start',
+        flexWrap: 'wrap',
+      }}
+    >
+      {labels.map((label) => (
+        <button
+          key={label}
+          onClick={() => handleMetaClick(label)}
+          style={{
+            padding: '6px 12px',
+            fontSize: 13,
+            borderRadius: 4,
+            border: '1px solid #ccc',
+            backgroundColor: '#fff',
+            cursor: 'pointer',
+            color: '#333',
+          }}
+        >
+          {label}
+        </button>
+      ))}
+    </div>
+  </div>
+
+<div style={{ marginTop: 10 }}>
+  <p style={{ fontWeight: 'bold', color: 'white', marginBottom: 8 }}>Ihre Meinung</p>
+  <textarea
+    value={inputText}
+    onChange={(e) => setInputText(e.target.value)}
+    rows={6}
+    placeholder="Was denken Sie über dieses Design?"
+    style={{
+      width: '100%',
+      padding: '10px',
+      fontSize: '14px',
+      borderRadius: '6px',
+      border: '1px solid #ccc',
+      color: 'white',
+      resize: 'vertical',
+    }}
+  />
+  <br />
+  <button
+    onClick={handleSendText}
+    style={{
+      marginTop: 10,
+      padding: '10px 18px',
+      backgroundColor: '#4caf50',
+      color: 'white',
+      border: 'none',
+      borderRadius: 5,
+      fontSize: 14,
+      cursor: 'pointer',
+      marginBottom: 10
+    }}
+  >
+    Absenden
+  </button>
+</div>
+
+</div>
+
+
     <title>Fragenkatalog Administration</title>
 
 <div className="app-container">
-        <div class="sidebar" style={{ fontFamily: selected.fonts[0] }}>
-            <h2>📘 Fragenkatalog</h2>
+        <div class="sidebar" style={{ backgroundColor: "#264555", fontWeight: selected.fontWeight.subtitle }}>
+            <h2>{selected.emoji.fragenkatalog}Fragenkatalog</h2>
 
 
             <div class="nav-section">
-                <a class="nav-link active"style={{ fontFamily: selected.fonts[0] }}   onClick={() => navigate('/test_page/')}>🏠 Übersicht</a>
+                <a class="nav-link active"style={{ fontWeight: selected.fontWeight.title }}   onClick={() => navigate('/test_page/')}>{selected.emoji.uebersicht}Übersicht</a>
                 <div class="nav-sub">
-                    <a class="nav-link"style={{ fontFamily: selected.fonts[0] }}>📄 Finalkatalog erstellen</a>
+                    <a class="nav-link"style={{ fontWeight: selected.fontWeight.subtitle }}>{selected.emoji.final}Finalkatalog erstellen</a>
                 </div>
 
                 <h4>THEMENSCHWERPUNKTE</h4>
                 <div class="nav-item">
-                    <a class="nav-link"style={{ fontFamily: selected.fonts[0] }}>🎯 IT Strategie</a>
-                    <p class="nav-subtext"style={{ fontFamily: selected.fonts[0] }}>Strategische IT-Planung und -Ausrichtung</p>
+                    <a class="nav-link" style={{ fontWeight: selected.fontWeight.title }}>{selected.emoji.itstrategie} IT Strategie</a>
+                    <p class="nav-subtext"style={{ fontWeight: selected.fontWeight.subtitle }}>Strategische IT-Planung und -Ausrichtung</p>
                 </div>
                 <div class="nav-item">
-                    <a class="nav-link"style={{ fontFamily: selected.fonts[0] }}>🛠️ IT Projektmanagement</a>
-                    <p class="nav-subtext"style={{ fontFamily: selected.fonts[0] }}>Projektplanung und -durchführung</p>
+                    <a class="nav-link"style={{ fontWeight: selected.fontWeight.title }}>{selected.emoji.projektmanagement}IT Projektmanagement</a>
+                    <p class="nav-subtext"style={{fontWeight: selected.fontWeight.subtitle }}>Projektplanung und -durchführung</p>
                 </div>
             </div>
             <div class="nav-item">
-                <a class="nav-link"style={{ fontFamily: selected.fonts[0] }}>📦 Sourcing</a>
-                <p class="nav-subtext"style={{ fontFamily: selected.fonts[0] }}>Beschaffung und Lieferantenmanagement</p>
+                <a class="nav-link"style={{fontWeight: selected.fontWeight.title }}>{selected.emoji.sourcing} Sourcing</a>
+                <p class="nav-subtext"style={{fontWeight: selected.fontWeight.subtitle }}>Beschaffung und Lieferantenmanagement</p>
             </div>
             <div class="nav-item">
-                <a class="nav-link"style={{ fontFamily: selected.fonts[0] }}>🏢 Betriebsmodell</a>
-                <p class="nav-subtext"style={{ fontFamily: selected.fonts[0] }}>Organisationsstrukturen und Prozesse</p>
+                <a class="nav-link"style={{fontWeight: selected.fontWeight.title }}>{selected.emoji.betriebsmodell} Betriebsmodell</a>
+                <p class="nav-subtext"style={{fontWeight: selected.fontWeight.subtitle }}>Organisationsstrukturen und Prozesse</p>
             </div>
         </div>
         <div class="main">
             <div class="header">
-                <h1>Fragenkatalog Administrator</h1>
-                <p>Verwalten Sie Ihre Themenschwerpunkte und erstellen Sie finale Kataloge</p>
+                <h1 style={{fontWeight: selected.fontWeight.title}}>Fragenkatalog Administrator</h1>
+                <p style={{fontWeight: selected.fontWeight.subtitle}}>Verwalten Sie Ihre Themenschwerpunkte und erstellen Sie finale Kataloge</p>
             </div>
 
             <div class="info-boxes">
@@ -610,77 +789,77 @@ return (
                 </div>
             </div>
 
-            <div class="section-header">
-                <h2>Themenschwerpunkte</h2>
-                <button class="create-button">📄 finale Katalog erstellen</button>
+            <div class="section-header" style={{fontWeight: selected.fontWeight.header}}>
+                <h2 style={{fontWeight: selected.fontWeight.header}}>Themenschwerpunkte</h2>
+                <button class="create-button" style={{fontWeight: selected.fontWeight.button}}>{selected.emoji.final}finale Katalog erstellen</button>
             </div>
 
             <div class="topics">
                 <div class="topic-card blue" style={{ background: "white" }}>
                     <div class="card-top-bar blue"style={{ background: selected.colors[0] }}></div>
-                    <h3>IT Strategie</h3>
+                    <h3 style={{fontWeight: selected.fontWeight.title}}>IT Strategie</h3>
                     <ul>
-                        <li>Strategische IT-Planung und -Ausrichtung</li>
+                        <li style={{fontWeight: selected.fontWeight.subtitle}}>Strategische IT-Planung und -Ausrichtung</li>
                     </ul>
                     <div class="card-footer">
-                        <div>
+                        <div style={{fontWeight: selected.fontWeight.usw}}>
                             <span>Katalog 1</span>
                             <span>Fragen: 30</span>
                         </div>
-                        <button class="card-button blue"style={{ background: selected.colors[0] }}>Verwalten →</button>
+                        <button class="card-button blue"style={{ background: selected.colors[0], fontWeight: selected.fontWeight.button }}>Verwalten →</button>
                     </div>
                 </div>
 
                 <div class="topic-card dark" style={{ background: "white" }}>
                     <div class="card-top-bar dark" style={{ background: selected.colors[1] }}></div>
-                    <h3>IT Projektmanagement</h3>
+                    <h3 style={{fontWeight: selected.fontWeight.title}}>IT Projektmanagement</h3>
                     <ul>
-                        <li>Projektplanung und -durchführung</li>
+                        <li style={{fontWeight: selected.fontWeight.subtitle}}>Projektplanung und -durchführung</li>
                     </ul>
                     <div class="card-footer">
-                        <div>
+                        <div style={{fontWeight: selected.fontWeight.usw}}>
                             <span>Katalog 2</span>
                             <span>Fragen: 50</span>
                         </div>
-                        <button class="card-button dark" style={{ background: selected.colors[1] }}>Verwalten →</button>
+                        <button class="card-button dark" style={{ background: selected.colors[1], fontWeight: selected.fontWeight.button }}>Verwalten →</button>
                     </div>
                 </div>
                 <div class="topic-card green"  style={{ background: "white" }}>
                     <div class="card-top-bar green"style={{ background: selected.colors[2] }}></div>
-                    <h3>Sourcing</h3>
+                    <h3  style={{fontWeight: selected.fontWeight.title}}>Sourcing</h3>
                     <ul>
-                        <li>Beschaffung und Lieferantenmanagement</li>
+                        <li style={{fontWeight: selected.fontWeight.subtitle}}>Beschaffung und Lieferantenmanagement</li>
                     </ul>
                     <div class="card-footer">
-                        <div>
+                        <div  style={{fontWeight: selected.fontWeight.usw}}>
                             <span>Katalog 3</span>
                             <span>Fragen: 50</span>
                         </div>
-                        <button class="card-button green" style={{ background: selected.colors[2] }}>Verwalten →</button>
+                        <button class="card-button green" style={{ background: selected.colors[2], fontWeight: selected.fontWeight.button }}>Verwalten →</button>
                     </div>
                 </div>
 
                 <div class="topic-card orange" style={{ background: "white" }}>
                     <div class="card-top-bar  orange" style={{ background: selected.colors[3] }}></div>
-                    <h3>Betriebsmodell</h3>
+                    <h3  style={{fontWeight: selected.fontWeight.title}}>Betriebsmodell</h3>
                     <ul>
-                        <li>Organisationsstrukturen und Prozesse</li>
+                        <li style={{fontWeight: selected.fontWeight.subtitle}}>Organisationsstrukturen und Prozesse</li>
                     </ul>
-                    <div class="card-footer">
-                        <div>
+                    <div class="card-footer"  >
+                        <div style={{fontWeight: selected.fontWeight.usw}}>
                             <span>Katalog 4</span>
                             <span>Fragen: 40</span>
                         </div>
-                        <button class="card-button orange" style={{ background: selected.colors[3] }}>Verwalten →</button>
+                        <button class="card-button orange" style={{ background: selected.colors[3], fontWeight: selected.fontWeight.button }}>Verwalten →</button>
                     </div>
                 </div>
 
             </div>
 
-            <div class="actions">
-                <button>Alle exportieren</button>
-                <button>Import/Export</button>
-                <button>Einstellungen</button>
+            <div class="actions"style={{backgroundColor: "#264555" }}>
+                <button style={{fontWeight: selected.fontWeight.usw }}>Alle exportieren</button>
+                <button style={{fontWeight: selected.fontWeight.usw }}>Import/Export</button>
+                <button style={{fontWeight: selected.fontWeight.usw }}>Einstellungen</button>
             </div>
 
         </div>
