@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './firebase'; // 실행 목적 (firebase.js에서 실행되는 코드 포함)
+import './firebase';
 import { db, doc, getDoc, setDoc, updateDoc, increment } from './firebase';
 import * as Tooltip from '@radix-ui/react-tooltip';
 import { Routes, Route, useNavigate } from 'react-router-dom';
